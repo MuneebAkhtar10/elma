@@ -1,5 +1,6 @@
 class AppviewsController < ApplicationController
   def contacts
+    @clients = Client.all
   end
 
   def profile
@@ -12,6 +13,7 @@ class AppviewsController < ApplicationController
   end
 
   def projects
+    @salons = Saloon.all
   end
 
   def project_detail

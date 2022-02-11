@@ -1,0 +1,127 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Salon detail</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="<%= url_for :controller => 'dashboards', :action => 'dashboard_1' %>">Home</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Salon detail</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInUp">
+<div class="row">
+    <div class="col-lg-9">
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="m-b-md">
+                            <%= link_to "Edit", edit_saloon_path(@salon), class: "btn btn-white btn-sm fa fa-pencil" %>
+
+                            <h2>Contract with <%= @salon.name %></h2>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Status:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"><span class="label label-primary">Active</span></dd>
+                            </div>
+                        </dl>
+
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Company:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"><a href="#" class="text-navy"><%= @salon.name %></a></dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="col-lg-6" id="cluster_info">
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Last Updated:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"><%= @salon.updated_at%></dd>
+                            </div>
+                        </dl>
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Created:</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"><%= @salon.created_at%></dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="col-lg-6" id="cluster_info">
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Longitude</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"><%= @salon.longitude%></dd>
+                            </div>
+                        </dl>
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>Latitude</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"><%= @salon.latitude%></dd>
+                            </div>
+                        </dl>
+                        <dl class="row mb-0">
+                            <div class="col-sm-4 text-sm-right">
+                                <dt>City</dt>
+                            </div>
+                            <div class="col-sm-8 text-sm-left">
+                                <dd class="mb-1"><%= @salon.city%></dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <dl class="row mb-0">
+                            <div class="col-sm-2 text-sm-right">
+                                <dt>Completed:</dt>
+                            </div>
+                            <div class="col-sm-10 text-sm-left">
+                                <dd>
+                                    <div class="progress m-b-1">
+                                        <div style="width: 100%;" class="progress-bar progress-bar-striped progress-bar-animated"></div>
+                                    </div>
+                                    <small>Salon completed<strong>100%</strong>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="wrapper wrapper-content project-manager">
+            <h4>Salon Address</h4>
+            <p>
+                <%= @salon.address %>
+            </p>
+        </div>
+    </div>
+</div>
+</div>

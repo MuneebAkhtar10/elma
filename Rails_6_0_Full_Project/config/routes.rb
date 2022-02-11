@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 # You can have the root of your site routed with "root"
   root to: 'dashboards#dashboard_1'
 
-  # All routes
+  #All the new routes which I created
+
+  resources :saloons
+  resources :clients
+
+  # All previous routes before I start the project routes
   get "dashboards/dashboard_1"
   get "dashboards/dashboard_2"
   get "dashboards/dashboard_3"
