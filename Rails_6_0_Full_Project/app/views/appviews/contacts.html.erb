@@ -31,7 +31,7 @@
                       <%= link_to "Edit", edit_client_path(client), class: "btn btn-white btn-sm fa fa-pencil" %>
                     </td>
                     <br><br>
-                    <p>Salon : <%= link_to client.saloon.name, saloon_path(client.saloon) %> </p>
+                    <p>Salon: <%= link_to client.saloon.name, saloon_path(client.saloon) %> </p>
                     <address>
                         Phone: <strong><%=client.country_code << '-' << client.phone %></strong><br/>
                         <p  class="fa fa-map-marker"><%= client.address %></p>
