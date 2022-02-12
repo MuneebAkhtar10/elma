@@ -1,9 +1,7 @@
-
 <div class="row">
     <div class="col-lg-12">
         <div class="ibox ">
             <div class="ibox-title">
-                <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -23,7 +21,7 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <%= form_for [@saloon] do |f| %>
+                <%= form_for [@client] do |f| %>
                     <div class="form-group  row"><%= f.label :name, "Name", class:"col-sm-2 col-form-label" %>
                         <div class="col-sm-10"><%= f.text_field :name, required: true, placeholder: "Name...", class:"form-control" %></div>
                     </div>
@@ -33,9 +31,12 @@
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
-                    <div class="form-group row"><%= f.label :city, "City", class:"col-sm-2 col-form-label" %>
+                    <div class="form-group row"><%= f.label :saloon, "Salon" ,class:"col-sm-2 col-form-label" %>
+                        <div class="col-sm-10"><%= f.select(:saloon_id, Saloon.all.collect {|a| [a.name, a.id]}) %></div>
+                    </div>
+                    <div class="form-group row"><%= f.label :country, "Country", class:"col-sm-2 col-form-label" %>
 
-                        <div class="col-sm-10"><%= f.text_field :city, required: true, placeholder: "City...", class:"form-control" %></div>
+                        <div class="col-sm-10"><%= f.country_select :country, iso_codes: true, id: :element_id, class:"form-control col-lg-12 col-md-12 col-sm-12 col-12" %></div>
                     </div>
                     
                     <div class="form-group row"><%= f.label :country_code, "Country code", class:"col-sm-2 col-form-label" %>
@@ -44,19 +45,10 @@
                     <div class="form-group row"><%= f.label :phone, "Phone", class:"col-sm-2 col-form-label" %>
                         <div class="col-sm-10"><%= f.number_field :phone, required: true, placeholder: "Phone...", class:"form-control" %></div>
                     </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row"><%= f.label :longitude, "Longitude" ,class:"col-sm-2 col-form-label" %>
 
-                        <div class="col-sm-10"><%= f.number_field :longitude, required: true, placeholder: "Longitude...", class:"form-control" %></div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row"><%= f.label :latitude, "Latitude", class:"col-sm-2 col-form-label" %>
-
-                        <div class="col-sm-10"><%= f.number_field :latitude, required: true, placeholder: "Latitude..." ,class:"form-control" %></div>
-                    </div>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group row">
-                        <%= f.submit "Submit Salon", class: "btn btn-primary" %>
+                        <%= f.submit "Update Client", class: "btn btn-primary" %>
                     </div>
                 <% end %>
             </div>
