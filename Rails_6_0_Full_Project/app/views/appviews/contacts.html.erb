@@ -16,17 +16,26 @@
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox-title">
+                <div class="ibox-tools">
+                    <%= link_to "Add new Contact", new_client_path, class: 'btn btn-primary btn-xs'  %>
+                </div>
+            </div>
 <div class="row">
   <% @clients.each do |client| %>
     <div class="col-lg-4">
         <div class="contact-box">
                 <div class="col-8">
                     <h3><strong><%= client.name %></strong></h3>
+                    <td class="project-actions">
+                      <%= link_to "Edit", edit_client_path(client), class: "btn btn-white btn-sm fa fa-pencil" %>
+                    </td>
+                    <br><br>
                     <p>Salon : <%= link_to client.saloon.name, saloon_path(client.saloon) %> </p>
                     <address>
-                        <strong><%= client.phone %></strong><br/>
+                        Phone: <strong><%=client.country_code << '-' << client.phone %></strong><br/>
                         <p  class="fa fa-map-marker"><%= client.address %></p>
-                        Phone: <%=client.country_code << '-' << client.phone %>
+                        Country: <%=client.country %>
                     </address>
                 </div>
             </a>

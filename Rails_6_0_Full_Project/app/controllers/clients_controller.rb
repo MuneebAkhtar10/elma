@@ -14,7 +14,7 @@ class ClientsController < ApplicationController
 
   def create
     @new_client = Client.new(set_client)
-    if @new_saloon.save
+    if @new_client.save
       flash[:success] = 'New Client saved'
       redirect_to appviews_contacts_path
     else
@@ -31,7 +31,7 @@ class ClientsController < ApplicationController
     @client = Client.find_by(id: params[:id])
     if @client.update(set_client)
       flash[:success] = 'New Client saved'
-      redirect_to appviews_clients_path
+      redirect_to appviews_contacts_path
     else
       flash[:alert] = 'Client not saved'
       redirect_to root_path
@@ -46,7 +46,8 @@ class ClientsController < ApplicationController
       :address,
       :phone,
       :country,
-      :saloon,
+      :country_code,
+      :saloon_id,
     )
   end
 end
