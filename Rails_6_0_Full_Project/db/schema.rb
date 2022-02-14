@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_11_015654) do
+ActiveRecord::Schema.define(version: 2022_02_14_171657) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,23 @@ ActiveRecord::Schema.define(version: 2022_02_11_015654) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "subscription_plan_id"
+  end
+
+  create_table "subscription_plan_features", force: :cascade do |t|
+    t.string "name"
+    t.string "engish_translation"
+    t.integer "subscription_plan_id"
+  end
+
+  create_table "subscription_plans", force: :cascade do |t|
+    t.string "name"
+    t.string "engish_translation"
+    t.string "status"
+    t.integer "saloon_id"
+    t.datetime "subscription_taken_at"
+    t.datetime "subscription_expires_at_at"
+    t.float "price"
   end
 
 end

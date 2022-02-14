@@ -5,6 +5,7 @@ class Saloon < ApplicationRecord
   before_create :default_status
 
   has_many :clients, dependent: :destroy
+  belongs_to :subscription_plan
 
   def default_status
     self.status = 'Active'
