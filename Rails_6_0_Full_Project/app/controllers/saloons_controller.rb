@@ -7,6 +7,7 @@ class SaloonsController < ApplicationController
   def show
     @salon = Saloon.find_by(id: params[:id])
     @subscription_plan = @salon.subscription_plan
+    @subscription_plans = SubscriptionPlan.all
   end
 
   def new

@@ -14,7 +14,7 @@
 
 
 <div class="wrapper wrapper-content animated fadeInUp">
-<div class="row">
+<div class="">
     <div class="col-lg-9">
 
         <div class="ibox">
@@ -126,75 +126,57 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <div class="panel-body">
-
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab-1">
                                         <div class="feed-activity-list">
                                             <div class="feed-element">
-                                                <h2>
-                                                  <b><%= @subscription_plan.name << ' plan' %></b>
-                                                </h2>
-
-                                                <div class="media-body ">
-                                                    <strong>Features</strong><br/><br/>
-                                                    <% features = @subscription_plan.subscription_plan_features %>
-                                                    <% features.each do |feature| %>
-                                                      <p><%= feature.name %></p>
-                                                    <% end %>
-                                                    <div class="well">
+                                              <div class="container">  
+                                                <div class="row">
+                                                   <div class="columns col-lg-4">
+                                                    <ul class="price list-unstyled">
+                                                      <% plan = @salon.subscription_plan %>
+                                                      <li class="header"><%=plan.name.upcase%></li>
+                                                      <li class="grey">$<%=plan.price %></li>
+                                                      <% plan.subscription_plan_features.each do |feature| %>
+                                                        <li><%= feature.name %></li>
+                                                      <%end%>
+                                                    </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-                                                                                       
+                                              </div>
+                                            </div>                                   
                                         </div>
-
                                     </div>
                                     <div class="tab-pane" id="tab-2">
-
-                                        <table class="table table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th>Status</th>
-                                                <th>Title</th>
-                                                <th>Start Time</th>
-                                                <th>End Time</th>
-                                                <th>Comments</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <span class="label label-primary"><i class="fa fa-check"></i> Completed</span>
-                                                </td>
-                                                <td>
-                                                    Create project in webapp
-                                                </td>
-                                                <td>
-                                                    12.07.2014 10:10:1
-                                                </td>
-                                                <td>
-                                                    14.07.2014 10:16:36
-                                                </td>
-                                                <td>
-                                                    <p class="small">
-                                                        Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable.
-                                                    </p>
-                                                </td>
-
-                                            </tr>                                            
-                                            </tbody>
-                                        </table>
-
+                                      <div class="container">
+                                        <div class="row m-b-lg">
+                                          <div class="col-lg-12 text-center">
+                                              <div class="navy-line"></div>
+                                              <h1>App Pricing</h1>
+                                              <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <% @subscription_plans.each do |plan| %>
+                                           <div class="columns col-lg-4">
+                                            <ul class="price list-unstyled">
+                                              <li class="header button"><b><%=plan.name.upcase%></b></li>
+                                              <li class="grey" style="color: #04AA6D">$<%=plan.price %></li>
+                                              <% plan.subscription_plan_features.each do |feature| %>
+                                                <li><%= feature.name %></li>
+                                              <%end%>
+                                              <li><a href="#" class="button">Sign Up</a></li>
+                                            </ul>
+                                            </div>
+                                          <%end%>
+                                        </div>
+                                      </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
 </div>
 </div>

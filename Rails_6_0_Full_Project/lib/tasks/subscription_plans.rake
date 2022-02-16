@@ -32,7 +32,17 @@ namespace :subscription_plans do
           SubscriptionPlanFeature.create(name: feature, subscription_plan: plan)
           puts 'Premium feature added'
         end
+      elsif plan.name == 'training'
+          SubscriptionPlanFeature.create(name: '2 days free training', subscription_plan: plan)
+          puts 'Training plan added'
       end
+    end
+  end
+  task assign_subscriptions: :environment do
+    salons = Saloon.where(subscription_plan: nil)
+    salons.each do |salon|
+      salon.update(subscription_plan: SubscriptionPlan.first)
+      puts 'subscription plan assigned'
     end
   end
 end
