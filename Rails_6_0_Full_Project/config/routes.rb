@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get "appviews/contacts_two"
   get "appviews/projects"
   get "appviews/project_detail"
+  get "appviews/pricing"
   get "appviews/activity_stream"
   get "appviews/file_menager"
   get "appviews/vote_list"
