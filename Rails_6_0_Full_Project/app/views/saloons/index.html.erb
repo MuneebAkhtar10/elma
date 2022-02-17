@@ -66,6 +66,7 @@
                                     <td class="project-actions">
                                       <%= link_to "View", saloon_path(salon), class: "btn btn-white btn-sm fa fa-folder" %>
                                       <%= link_to "Edit", edit_saloon_path(salon), class: "btn btn-white btn-sm fa fa-pencil" %>
+                                      <%= button_to "Invoice", pages_invoice_path, params: {salon_id: salon.id}, method: :get, class: "btn button" %>
                                     </td>
                                 </tr>
                             <% end %>

@@ -7,9 +7,13 @@ class PagesController < ApplicationController
   end
 
   def invoice
+    @salon = Saloon.find_by(id: params[:salon_id])
+    @invoice = Invoice.find_by(saloon_id: @salon.id)
   end
 
   def invoice_print
+    @salon = Saloon.find_by(id: params[:salon_id])
+    @invoice = Invoice.find_by(saloon_id: @salon.id)
     render :layout => "empty"
   end
 
