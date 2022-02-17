@@ -7,6 +7,8 @@ class SubscriptionPlan < ApplicationRecord
   has_many :saloons, dependent: :destroy
   has_many :subscription_plan_features, dependent: :destroy
 
+  default_scope { where.not(name: 'training') }
+
   def default_status
     self.status = 'inactive'
   end

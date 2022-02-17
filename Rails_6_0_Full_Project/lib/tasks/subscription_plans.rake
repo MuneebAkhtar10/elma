@@ -41,7 +41,7 @@ namespace :subscription_plans do
   task assign_subscriptions: :environment do
     salons = Saloon.where(subscription_plan: nil)
     salons.each do |salon|
-      salon.update(subscription_plan: SubscriptionPlan.first)
+      salon.update(subscription_plan: SubscriptionPlan.second)
       puts 'subscription plan assigned'
     end
   end

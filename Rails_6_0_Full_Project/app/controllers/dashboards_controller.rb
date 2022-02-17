@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   def dashboard_1
+    redirect_to appviews_pricing_path
   end
 
   def dashboard_2

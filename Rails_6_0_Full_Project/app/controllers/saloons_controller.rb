@@ -18,7 +18,7 @@ class SaloonsController < ApplicationController
     @new_saloon = Saloon.new(set_saloon)
     if @new_saloon.save
       flash[:success] = 'New Saloon saved'
-      redirect_to appviews_projects_path
+      redirect_to saloons_path
     else
       flash[:alert] = 'Saloon not saved'
       redirect_to root_path
@@ -33,7 +33,7 @@ class SaloonsController < ApplicationController
     @salon = Saloon.find_by(id: params[:id])
     if @salon.update(set_saloon)
       flash[:success] = 'New Saloon saved'
-      redirect_to appviews_projects_path
+      redirect_to saloons_path
     else
       flash[:alert] = 'Saloon not saved'
       redirect_to root_path
@@ -51,6 +51,7 @@ class SaloonsController < ApplicationController
       :phone,
       :longitude,
       :latitude,
+      :subscription_plan_id
     )
   end
 end
