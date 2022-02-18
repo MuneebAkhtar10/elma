@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find_by(id: params[:id])
+    redirect_to root_path unless @client
   end
 
   def new
@@ -25,6 +26,7 @@ class ClientsController < ApplicationController
 
   def edit
     @client = Client.find_by(id: params[:id])
+    redirect_to root_path unless @client
   end
 
   def update

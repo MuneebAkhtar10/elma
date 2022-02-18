@@ -8,13 +8,21 @@ class PagesController < ApplicationController
 
   def invoice
     @salon = Saloon.find_by(id: params[:salon_id])
-    @invoice = Invoice.find_by(saloon_id: @salon.id)
+    if @salon
+      @invoice = Invoice.find_by(saloon_id: @salon.id)
+    else    
+      redirect_to root_path
+    end
   end
 
   def invoice_print
     @salon = Saloon.find_by(id: params[:salon_id])
-    @invoice = Invoice.find_by(saloon_id: @salon.id)
-    render :layout => "empty"
+    if @salon
+      @invoice = Invoice.find_by(saloon_id: @salon.id)
+      render :layout => "empty"
+    else
+      redirect_to root_path
+    end
   end
 
   def login

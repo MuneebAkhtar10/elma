@@ -6,8 +6,12 @@ class SaloonsController < ApplicationController
 
   def show
     @salon = Saloon.find_by(id: params[:id])
-    @subscription_plan = @salon.subscription_plan
-    @subscription_plans = SubscriptionPlan.all
+    if @salon
+      @subscription_plan = @salon.subscription_plan
+      @subscription_plans = SubscriptionPlan.all
+    else
+      redirect_to root_path
+    end
   end
 
   def new
@@ -27,6 +31,7 @@ class SaloonsController < ApplicationController
 
   def edit
     @saloon = Saloon.find_by(id: params[:id])
+    redirect_to root_path unless @saloon
   end
 
   def update
