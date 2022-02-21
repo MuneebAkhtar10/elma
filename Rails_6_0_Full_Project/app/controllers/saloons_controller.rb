@@ -1,7 +1,12 @@
 class SaloonsController < ApplicationController
 
   def index
-    @salons = Saloon.all
+    if params[:keyword] != "" && params[:keyword]
+      name = params[:keyword]
+      @salons = Saloon.where('lower(name) = ?', name.downcase)
+    else
+      @salons = Saloon.all
+    end
   end
 
   def show
@@ -43,6 +48,10 @@ class SaloonsController < ApplicationController
       flash[:alert] = 'Saloon not saved'
       redirect_to root_path
     end
+  end
+
+  def control_subscription
+    debugger
   end
 
   private
