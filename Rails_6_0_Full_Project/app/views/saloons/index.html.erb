@@ -62,20 +62,11 @@
                                     <td class="project-actions">
                                       <%= link_to "View", saloon_path(salon), class: "btn btn-white btn-sm fa fa-folder" %>
                                       <%= link_to "Edit", edit_saloon_path(salon), class: "btn btn-white btn-sm fa fa-pencil" %>
-                                      <%= button_to "Invoice", pages_invoice_path, params: {salon_id: salon.id}, method: :get, class: "btn button" %>
-
-
-<!--                                           <div class="switch">
-                                            <div class="onoffswitch">
-                                                <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
-                                                <label class="onoffswitch-label" for="example1">
-                                                    <span class="onoffswitch-inner"></span>
-                                                    <span class="onoffswitch-switch"></span>
-                                                </label>
-                                            </div>
-                                        </div> -->
-
-
+                                      <% if salon.status == 'Active' %>
+                                      <%= button_to "Inactivate Sub", saloons_control_subscription_path, params: {salon_id: salon.id}, method: :get, class: "btn button btn-danger" %>
+                                      <% elsif salon.status == 'Inactive' %>
+                                        <%= button_to "Activate Sub", saloons_control_subscription_path, params: {salon_id: salon.id}, method: :get, class: "btn button" %>
+                                      <% end %>
                                     </td>
                                 </tr>
                             <% end %>
@@ -93,7 +84,7 @@
 
 <script type="text/javascript">
 
-    $('#example1').click(function () {
+    $('#edsxample1').click(function () {
         alert('hello')
     });
 

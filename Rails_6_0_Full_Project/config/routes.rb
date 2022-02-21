@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   #All the new routes which I created
 
-  resources :saloons
   get "saloons/control_subscription"
+  resources :saloons
   resources :clients
 
   # All previous routes before I start the project routes

@@ -51,7 +51,13 @@ class SaloonsController < ApplicationController
   end
 
   def control_subscription
-    debugger
+    @sal = Saloon.find_by(id: params[:salon_id])
+    if @sal.status == 'Active'
+      @sal.update(status: 'Inactive')
+    elsif @sal.status == 'Inactive'
+      @sal.update(status: 'Active')
+    end
+    redirect_to saloons_path
   end
 
   private
