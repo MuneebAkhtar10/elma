@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-namespace :subscription_plans do
+namespace :clients do
   task create_clients: :environment do
   	hash = {
 			1 => ['fatou NEyl','anonyme_fatou_tujhquxw@elma.com','+212', '0606060611', 'Femme'], 
