@@ -9,7 +9,7 @@ class Saloon < ApplicationRecord
   belongs_to :subscription_plan
 
   def default_status
-    self.status = 'Active'
+    self.status = 'Inactive'
   end
 
   def invoice_creation

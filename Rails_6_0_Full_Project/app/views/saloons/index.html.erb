@@ -62,10 +62,11 @@
                                     <td class="project-actions">
                                       <%= link_to "View", saloon_path(salon), class: "btn btn-white btn-sm fa fa-folder" %>
                                       <%= link_to "Edit", edit_saloon_path(salon), class: "btn btn-white btn-sm fa fa-pencil" %>
+                                      <%= button_to "Invoice", pages_invoice_path, params: {salon_id: salon.id}, method: :get, class: "btn" %>
                                       <% if salon.status == 'Active' %>
-                                      <%= button_to "Inactivate Sub", saloons_control_subscription_path, params: {salon_id: salon.id}, method: :get, class: "btn button btn-danger" %>
+                                      <%= button_to "Inactivate Sub", saloons_control_subscription_path, params: {salon_id: salon.id}, method: :get, class: "btn button btn-danger btn-xs" %>
                                       <% elsif salon.status == 'Inactive' %>
-                                        <%= button_to "Activate Sub", saloons_control_subscription_path, params: {salon_id: salon.id}, method: :get, class: "btn button" %>
+                                        <%= button_to "Activate Sub", saloons_control_subscription_path, params: {salon_id: salon.id}, method: :get, class: "btn btn-primary btn-xs" %>
                                       <% end %>
                                     </td>
                                 </tr>
