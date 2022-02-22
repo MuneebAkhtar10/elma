@@ -3,7 +3,7 @@ class SaloonsController < ApplicationController
   def index
     if params[:keyword] != "" && params[:keyword]
       name = params[:keyword]
-      @salons = Saloon.where('lower(name) = ?', name.downcase)
+      @salons = Saloon.all.where('lower(name) LIKE :name',name: "%#{name}%")
     else
       @salons = Saloon.all
     end
