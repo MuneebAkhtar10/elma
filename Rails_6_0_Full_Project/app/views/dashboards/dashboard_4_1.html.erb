@@ -4,14 +4,14 @@
             <div class="ibox ">
                 <div class="ibox-title">
                     <div class="ibox-tools">
-                    <span class="label label-success float-right">Monthly</span>
+                    <span class="label label-success float-right" style="background-color:green">Active</span>
                         </div>
-                    <h5>Views</h5>
+                    <h5>Salons</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">386,200</h1>
-                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                    <small>Total views</small>
+                    <h1 class="no-margins"><%= Saloon.where(status: 'Active').count%></h1>
+                    <div class="stat-percent font-bold text-success"><%= SubscriptionPlan.all.count%></i></div>
+                    <small>Available Subscriptions</small>
                 </div>
             </div>
         </div>
@@ -19,14 +19,14 @@
             <div class="ibox ">
                 <div class="ibox-title">
                     <div class="ibox-tools">
-                    <span class="label label-info float-right">Annual</span>
+                    <span class="label label-info float-right" style="background-color:red">Inactive</span>
                         </div>
-                    <h5>Orders</h5>
+                    <h5>Salons</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">80,800</h1>
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                    <small>New orders</small>
+                    <h1 class="no-margins"><%= Saloon.where(status: 'Inactive').count%></h1>
+                    <div class="stat-percent font-bold text-info"><%= SubscriptionPlan.all.count%></div>
+                    <small>Available Subscriptions</small>
                 </div>
             </div>
         </div>
@@ -37,18 +37,18 @@
                     <div class="ibox-tools">
                     <span class="label label-primary float-right">Today</span>
                         </div>
-                    <h5>visits</h5>
+                    <h5>Clients</h5>
                 </div>
                 <div class="ibox-content">
 
                     <div class="row">
                         <div class="col-md-6">
-                            <h1 class="no-margins">406,42</h1>
-                            <div class="font-bold text-navy">44% <i class="fa fa-level-up"></i> <small>Rapid pace</small></div>
+                            <h1 class="no-margins"><%= Client.all.count %></h1>
+                            <div class="font-bold text-navy"><small>are the current clients</small></div>
                         </div>
                         <div class="col-md-6">
-                            <h1 class="no-margins">206,12</h1>
-                            <div class="font-bold text-navy">22% <i class="fa fa-level-up"></i> <small>Slow pace</small></div>
+                            <h1 class="no-margins">Subs</h1>
+                            <div class="font-bold text-navy"><small><%= SubscriptionPlan.first.name %></small><br><small><%= SubscriptionPlan.second.name %></small></div>
                         </div>
                     </div>
 
