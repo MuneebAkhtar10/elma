@@ -203,11 +203,23 @@
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
-                        </a>
-                       
+                        </a>   
                     </div>
                 </div>
                 <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <%= form_tag :dashboards_dashboard_4_1, method: :get, class: "search" do %>
+                                      <%= text_field_tag "keyword", params[:keyword] %>
+                                      <%= submit_tag "Go" %>
+                                    <% end %>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -222,7 +234,6 @@
                                 <th>Import into the system</th>
                             </tr>
                             </thead>
-                            <% @clients = Client.all %>
                             <% @clients.each do |client| %>
                                 <tbody>
                                 <tr>

@@ -15,6 +15,12 @@ class DashboardsController < ApplicationController
   end
 
   def dashboard_4_1
+    if params[:keyword] != "" && params[:keyword]
+      name = params[:keyword]
+      @clients = Client.all.where('lower(name) LIKE :name',name: "%#{name}%")
+    else
+      @clients = Client.all
+    end
   end
 
   def dashboard_5
